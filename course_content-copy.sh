@@ -17,14 +17,14 @@ SOURCE_DBURL=$INTEGRATION_DBURL
 TARGET_DBURL=$STAGING_DBURL
 
 # connect to Staging db and copy the data out of `course_content` to CSV
-psql -d $SOURCE_DBURL -e -c "\copy course_content to '/tmp/course_content.csv' with csv header delimiter '|'"
+# psql -d $SOURCE_DBURL -e -c "\copy course_content to '/tmp/course_content.csv' with csv header delimiter '|'"
 
-# connect to Production, drop the old course_content table
-psql -d $TARGET_DBURL -e -c "drop table if exists course_content;"
+# # connect to Production, drop the old course_content table
+# psql -d $TARGET_DBURL -e -c "drop table if exists course_content;"
 
 # Heredoc fot the create statement assigned to variable
-table_ddl=$(cat << EOF
-"create table if not exists course_content (
+table_ddl="$(cat << EOF
+create table if not exists course_content (
     tenant_id integer not null,
     content_package_title text not null,
     content_package_id bigint not null,
@@ -37,9 +37,9 @@ table_ddl=$(cat << EOF
     correct_answer text,
     parent_content_id bigint,
     created_at timestamp without time zone not null default current_timestamp
-);"
-EOF
 )
+EOF
+)"
 
 # execute ^^^ on Production to recreate the table
 psql -d $TARGET_DBURL -e -c $table_ddl
