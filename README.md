@@ -5,6 +5,6 @@
 To run this in a pod:
 
 1. Start your pod the usual way: `cd $PROJECT_DIR/infrastructure; rake pod:create`
-2. From in your pod, clone this repe and cd into it: `git clone https://[TK]; cd course_content-copy`
+2. From in your pod, clone this repe and cd into it: `git clone https://github.com/tym-xqo/course_content-copy.git; cd course_content-copy`
 3. Execute the shell script: `bash course_content-copy.sh`
 4. 🎉
