@@ -16,6 +16,8 @@ PRODUCTION_DBURL=postgresql://ai_tutor_user@10.94.21.79:5433/ai_tutor_production
 SOURCE_DBURL=$INTEGRATION_DBURL
 TARGET_DBURL=$STAGING_DBURL
 
+export PGPASSFILE="${PWD}/.pgpass"
+
 # connect to Source db and copy the data out of `course_content` to CSV
 psql -d $SOURCE_DBURL -e -c "\copy course_content to '/tmp/course_content.csv' with csv header delimiter '|'"
 

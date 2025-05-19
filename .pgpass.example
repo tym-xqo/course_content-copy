@@ -1,0 +1,5 @@
+# hostname:port:database:username:password
+*:*:ai_tutor_integration:ai_tutor_user:bad-password
+*:*:ai_tutor_staging:ai_tutor_user:really-bad-password 
+*:*:ai_tutor_production:ai_tutor_user:the-worst-password
+

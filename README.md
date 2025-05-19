@@ -5,7 +5,9 @@
 To run this in a pod:
 
 1. Start your pod the usual way: `cd $PROJECT_DIR/infrastructure; rake pod:create`
-2. From in your pod, clone this repe and cd into it: `git clone https://github.com/tym-xqo/course_content-copy.git; cd course_content-copy`
-3. Edit lines below `CONFIGURE` comment as needed
-4. Execute the shell script: `bash course_content-copy.sh`
-5. 🎉
+1. From in your pod, clone this repe and cd into it: `git clone https://github.com/tym-xqo/course_content-copy.git; cd course_content-copy`
+1. Edit lines below the `CONFIGURE` comment as needed (ie to choose source and target based on URLs provided)
+1. Copy .pgpass.example to `.pgpass` and ensure it is read-only: `cp .pgpass.example .pgpass; chmod`
+1. Edit `root/.pgpass` to provide correct passwords from `ai_tutor_user` Postgres user (in 1Password)*
+1. Execute the shell script: `bash course_content-copy.sh`
+1. 🎉
