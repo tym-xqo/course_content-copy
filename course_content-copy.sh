@@ -48,7 +48,7 @@ psql -d $TARGET_DBURL -e -c "${table_ddl}"
 psql -d $TARGET_DBURL -e -c "alter table course_content owner to ai_tutor_role"
 
 # copy the data from Staging export into Prod
-psql -d $TARGET_DBURL -e -c "\copy course_content_test from '/tmp/course_content.csv' with csv header delimiter '|'"
+psql -d $TARGET_DBURL -e -c "\copy course_content from '/tmp/course_content.csv' with csv header delimiter '|'"
 
 # w00t!
 echo 'wow, done!'
