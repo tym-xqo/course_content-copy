@@ -13,8 +13,8 @@ PRODUCTION_DBURL=postgresql://ai_tutor_user@10.94.21.79:5433/ai_tutor_production
 
 # CONFIGURE source and target
 # TODO: for Prod move, update lines below for Staging as Source and Prod as target
-SOURCE_DBURL=$INTEGRATION_DBURL
-TARGET_DBURL=$STAGING_DBURL
+SOURCE_DBURL=$STAGING_DBURL
+TARGET_DBURL=$PRODUCTION_DBURL
 
 export PGPASSFILE="${PWD}/.pgpass"
 
