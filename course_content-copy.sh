@@ -42,7 +42,7 @@ EOF
 )"
 
 # execute ^^^ on Production to recreate the table
-psql -d $TARGET_DBURL -e -c $table_ddl
+psql -d $TARGET_DBURL -e -c "${table_ddl}"
 
 # ensure `ai_tutor_role` owns the table, so `ai_tutor_user` can access it
 psql -d $TARGET_DBURL -e -c "alter table course_content owner to ai_tutor_role"
