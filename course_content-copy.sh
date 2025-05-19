@@ -7,9 +7,9 @@ set -x
 
 
 # database connections for all AI Tutor DBs
-INTEGRATION_DBURL=postgresql://postgres@10.169.203.61:5433/ai_tutor_integration
-STAGING_DBURL=postgresql://postgres@10.169.203.61:6433/ai_tutor_staging
-PRODUCTION_DBURL=postgresql://postgres@10.94.21.79:5433/ai_tutor_production
+INTEGRATION_DBURL=postgresql://ai_tutor_user@10.169.203.61:5433/ai_tutor_integration
+STAGING_DBURL=postgresql://ai_tutor_user@10.169.203.61:6433/ai_tutor_staging
+PRODUCTION_DBURL=postgresql://ai_tutor_user@10.94.21.79:5433/ai_tutor_production
 
 # CONFIGURE source and target
 # TODO: for Prod move, update lines below for Staging as Source and Prod as target
