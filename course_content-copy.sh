@@ -24,7 +24,7 @@ psql -d $TARGET_DBURL -e -c "drop table if exists course_content;"
 
 # Heredoc fot the create statement assigned to variable
 table_ddl=$(cat << EOF
-create table if not exists course_content (
+"create table if not exists course_content (
     tenant_id integer not null,
     content_package_title text not null,
     content_package_id bigint not null,
@@ -37,7 +37,7 @@ create table if not exists course_content (
     correct_answer text,
     parent_content_id bigint,
     created_at timestamp without time zone not null default current_timestamp
-);
+);"
 EOF
 )
 
