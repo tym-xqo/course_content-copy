@@ -16,11 +16,11 @@ PRODUCTION_DBURL=postgresql://ai_tutor_user@10.94.21.79:5433/ai_tutor_production
 SOURCE_DBURL=$INTEGRATION_DBURL
 TARGET_DBURL=$STAGING_DBURL
 
-# connect to Staging db and copy the data out of `course_content` to CSV
-# psql -d $SOURCE_DBURL -e -c "\copy course_content to '/tmp/course_content.csv' with csv header delimiter '|'"
+# connect to Source db and copy the data out of `course_content` to CSV
+psql -d $SOURCE_DBURL -e -c "\copy course_content to '/tmp/course_content.csv' with csv header delimiter '|'"
 
-# # connect to Production, drop the old course_content table
-# psql -d $TARGET_DBURL -e -c "drop table if exists course_content;"
+# # connect to Target, drop the old course_content table
+psql -d $TARGET_DBURL -e -c "drop table if exists course_content;"
 
 # Heredoc fot the create statement assigned to variable
 table_ddl="$(cat << EOF
