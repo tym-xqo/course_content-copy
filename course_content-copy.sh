@@ -52,5 +52,8 @@ psql -d $TARGET_DBURL -e -c "alter table course_content owner to ai_tutor_role"
 # copy the data from Staging export into Prod
 psql -d $TARGET_DBURL -e -c "\copy course_content from '/tmp/course_content.csv' with csv header delimiter '|'"
 
+# confirm result
+psql -d $TARGET_DBURL -e -c "select count(*) as record_count from course_content"
+
 # w00t!
-echo 'wow, done!'
+echo 'confirm that record_count matches rows written by COPY'
